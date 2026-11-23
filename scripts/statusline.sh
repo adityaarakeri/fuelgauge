@@ -38,7 +38,7 @@ branch=$(git -C "$cwd" --no-optional-locks symbolic-ref --short HEAD 2>/dev/null
 # --- Color-coded progress bar ---
 make_bar() {
   local pct=$1 label=$2 width=10
-  local filled=$((pct * width / 100))
+  local filled=$(((pct * width + 50) / 100))
   [ "$filled" -gt "$width" ] && filled=$width
   local empty=$((width - filled))
 

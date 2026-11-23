@@ -58,7 +58,7 @@ if (Test-Path $cwd) {
 
 function Make-Bar([int]$pct, [string]$label) {
     $width = 10
-    $filled = [math]::Min([math]::Floor($pct * $width / 100), $width)
+    $filled = [math]::Min([int][math]::Floor(($pct * $width + 50) / 100), $width)
     $empty  = $width - $filled
 
     if     ($pct -ge 90) { $color = "$e[38;5;203m" }
